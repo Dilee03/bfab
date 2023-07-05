@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+    <title>bfab Rewards</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+
+<body>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#session-msg').fadeOut('fast');
+            }, 10000);
+        });
+    </script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#session-msg').fadeOut('fast');
+            }, 10000);
+        });
+    </script>
+    <style>
+        input {
+            background: white;
+        }
+    </style>
+    <section class=" h-screen w-full">
+        <div class style="display:flex;justify-content:center;align-items:center;height: 100%;padding: 0 12px 0 12px;">
+            <div style="max-width: 500px"
+                class="md:w-8/12 lg:w-5/12 mb-6 md:mb-0 bg-gray-100 rounded lg:px-16 lg:py-8   p-10  w-full h-auto">
+                <form action="https://rewards.bfab.com/login" method="POST">
+                    <input type="hidden" name="_token" value="0hS8KlqEghPo4LRN7BzbEqvjhdqEljPLs2vWy8Ky">
+                    <!-- Email input -->
+                    <div class="mb-6 flex justify-end	">
+                        <img class="w-52 " src="images/microsite_logo.png" alt srcset>
+                    </div>
+                    <div class="mb-2 flex flex-col">
+                        <span class="text-2xl font-bold">JOIN AND BE FABULOUS</span>
+                        <span class="app-text-color text-2xl font-bold ">Hi, Welcome!</span>
+                        <span class="text-lg font-light	">Please Login to Continue</span>
+                    </div>
+
+                    <div class="mb-6">
+                        <input minlength="8" maxlength="18" autocomplete="off" type="text" name="phone" id="phone"
+                            class="form-control bg-white text-lg block w-full px-4 py-2  font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder>
+                    </div>
+                    <div class="mb-2">
+                        <input onkeydown="if (event.keyCode === 32) event.preventDefault();" value
+                            onchange="hidePassword()" maxlength="30" autocomplete="off" id="password" type="password"
+                            name="password"
+                            class="form-control bg-white text-lg block w-full px-4 py-2  font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Password">
+                        <div class="flex justify-between">
+                            <div class="ml-2 mt-2">
+                                <input type="checkbox" class="lg:mt-0" onclick="showPassword()"> <span
+                                    class="lg:text-sm sm:text-sm text-xs ">Show Password</span>
+                            </div>
+                            <div class="ml-2 mt-2">
+                                <a href="https://rewards.bfab.com/forget-password"
+                                    class="lg:text-sm sm:text-sm text-xs app-text-color hover:underline">Forget
+                                    Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <button id="submit" type="submit" style=" background-color: #ab8464;"
+                        class="inline-block px-7 py-5  text-white font-medium text-sm leading-snug uppercase rounded shadow-md    transition duration-150 ease-in-out w-full ">
+                        Login
+                    </button>
+
+                </form>
+
+                <!--                     <div class="mt-4">
+                        Don't have an account? <a class="app-text-color font-semibold" href="https://rewards.bfab.com/register">Sign
+                            up</a>
+                    </div> -->
+            </div>
+        </div>
+    </section>
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        function hidePassword() {
+            var x = document.getElementById("password");
+            x.type = "password";
+        }
+    </script>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/intlTelInput.css">
+    <script src="js/intlTelInput.min.js"></script>
+    <script>
+        function preview_image1() {
+            var filePath = document.getElementById("upload_profile");
+            // Allowing file type
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath.value)) {
+                if (filePath.value === '') {
+                    document.getElementById("error1").innerHTML =
+                        "Profile picture field is required!";
+                }
+                else {
+                    document.getElementById("error1").innerHTML =
+                        "The file must be a file of type: jpg , jpeg , png , pdf";
+                }
+                document.getElementById("error1").style.color = "red";
+                filePath.value = "";
+                $("#img").remove();
+                $("#img_preview").append(
+                    $(" <span style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);opacity:0.7' class='w-full   text-center font-normal text-gray-400 text-4xl'><i class='fa-solid fa-user'></i></span>")
+                );
+                return false;
+            } else {
+                var filePath = document.getElementById("upload_profile");
+                if (filePath.files.length > 0) {
+                    for (var i = 0; i < filePath.files.length; i++) {
+                        const fsize = filePath.files.item(i).size;
+                        const file = Math.round(fsize / 1024);
+                        if (file >= 5000) {
+                            document.getElementById("error1").innerHTML =
+                                "File too Big, please select a file less than 5mb";
+                            document.getElementById("error1").style.color = "red";
+                            document.getElementById("error1").style.color = "red";
+                            filePath.value = "";
+                            $("#img").remove();
+                            $("#img_preview").append(
+                                $(" <span style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);opacity:0.7' class='w-full   text-center font-normal text-gray-400 text-4xl'><i class='fa-solid fa-user'></i></span>")
+                            );
+                            return false;
+                        } else {
+                            document.getElementById("error1").innerHTML =
+                                "<b>" + file + "</b> KB";
+                            document.getElementById("error1").style.color = "blue";
+                            $('#img_preview').html('');
+                            $("#img_preview").append(
+                                $("<img id='img' style='width: 150px;height: 150px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);' class='rounded-full' src='" +
+                                    URL.createObjectURL(event.target.files[i]) +
+                                    "'><br>")
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // get the input element
+        const input = document.getElementById('phone');
+
+        // add an oninput event listener to the input element
+        input.addEventListener('input', function () {
+            // regular expression to match a mobile number with country code
+            const mobileNumberRegex = /^\+\d{1,3}\d{6,14}$/;
+
+            // get the value of the input element
+            const inputValue = input.value;
+
+            // check if the input value matches the mobile number regex
+            if (!mobileNumberRegex.test(inputValue)) {
+                // if the input value does not match the mobile number regex, remove any non-numeric characters
+                input.value = inputValue.replace(/[^\d\+]/g, '');
+            }
+        });
+
+    </script>
+
+
+
+    <script>
+        function _calculateAge(birthday) { // birthday is a date
+            const birthdate = new Date(birthday)
+            var ageDifMs = Date.now() - birthdate.getTime();
+
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            document.getElementById("age").value = Math.abs(ageDate.getUTCFullYear() - 1970);
+        }
+    </script>
+
+
+
+    <script>
+        var phoneInput = document.querySelector("#phone");
+        let iti = window.intlTelInput(phoneInput, {
+            separateDialCode: false,
+            nationalMode: true,
+            preferredCountries: ["ae", "jo", "om", "bh", "sa", "qa", "in"],
+            utilsScript: "js/utils.js",
+
+        });
+        var dialCode = iti.getSelectedCountryData().dialCode;
+        // set the input value to the dial code
+        phoneInput.value = "+" + dialCode;
+        var phoneContainer = document.querySelector(".iti");
+        phoneContainer.style.width = "100%";
+        phoneInput.placeholder = "Mobile number with country code";
+
+        fetch('http://ip-api.com/json')
+            .then(response => response.json())
+            .then(data => {
+                // Retrieve the country code from the response
+                var userCountry = data.countryCode;
+
+                // Set the country in the input field
+                iti.setCountry(userCountry);
+            });
+
+    </script>
+
+
+    <script>
+        function removeImage() {
+            if ($("#loaded-img").remove()) {
+                $("#img-icon").html("<i style='opacity:0.7' class='fa-solid fa-user'></i>");
+            }
+            if ($("#img").remove()) {
+                $("#img_preview").html("<span style='position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);opacity:0.7' class='w-full   text-center font-normal text-gray-400 text-4xl'><i class='fa-solid fa-user'></i></span>");
+            }
+            $('#image_removed').val('image_removed');
+        }
+    </script>
+
+    <script>
+        function nameValidate(input) {
+            input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+        }
+        function validateNameInput(input) {
+            // Remove any non-alphabetic characters from the input value
+            input.value = input.value.replace(/[^A-Za-z\s]/g, '');
+            // input.value = input.value.replace(/[^A-Za-z]/g, '');
+        }
+
+    </script><!-- Add a container element for the spinner -->
+    <div id="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    <style>
+        #loader {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: none;
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3;
+            /* Light grey */
+            border-top: 8px solid #ab8464;
+            /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+        // Get a reference to the loader element
+        var loader = document.getElementById("loader");
+
+        var button = document.getElementById("submit");
+
+        button.addEventListener("click", function () {
+            // Show the loader when the page is about to be unloaded or reloaded
+            window.onbeforeunload = function () {
+                loader.style.display = "block";
+            }
+        });
+
+        // Hide the loader when the page has finished reloading
+        window.onload = function () {
+            loader.style.display = "none";
+        }
+        window.onbeforeunload = function (event) {
+            if (event.currentTarget.performance.navigation.type === 1) {
+                loader.style.display = "none";
+            }
+        };
+
+        window.onunload = function () {
+            loader.style.display = "none";
+        };
+    </script>
+
+
+</body>
+
+</html>
