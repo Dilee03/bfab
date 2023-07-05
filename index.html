@@ -212,7 +212,7 @@
         phoneContainer.style.width = "100%";
         phoneInput.placeholder = "Mobile number with country code";
 
-        fetch('http://ip-api.com/json')
+        fetch('https://freeipapi.com/api/json')
             .then(response => response.json())
             .then(data => {
                 // Retrieve the country code from the response
